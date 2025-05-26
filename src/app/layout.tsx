@@ -8,10 +8,9 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    template: "Rich Text Editor | %s",
-    default: "Rich Text Editor",
+    template: "Rich Editor App | %s",
+    default: "Rich Editor",
   },
-
   description: "Rich Text Editor",
 };
 
