@@ -22,7 +22,7 @@ const RootLayout: FC<Props> = ({ children }): ReactElement => {
   return (
     <html lang="fa" dir="rtl">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${vazirmatn.variable} font-vazirmatn layout antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${vazirmatn.variable} font-vazirmatn layout bg-zinc-900 text-gray-200 antialiased`}
       >
         <Header />
         {children}

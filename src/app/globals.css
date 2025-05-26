@@ -1,18 +1,19 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+:root {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
 @theme {
   /* Fonts */
   --font-vazirmatn: var(--font-vazirmatn);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-
-  /* Colors */
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
 }
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant hover (&:hover);
 
 @layer components {
   .layout {
