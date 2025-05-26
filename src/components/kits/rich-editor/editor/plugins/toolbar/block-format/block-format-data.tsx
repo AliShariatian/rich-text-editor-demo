@@ -1,8 +1,8 @@
 import {
   CodeIcon,
-  Heading1Icon,
   Heading2Icon,
   Heading3Icon,
+  Heading4Icon,
   ListIcon,
   ListOrderedIcon,
   ListTodoIcon,
@@ -15,10 +15,6 @@ export const blockTypeToBlockName: Record<string, { label: string; icon: React.R
     label: "Paragraph",
     icon: <TextIcon className="size-4" />,
   },
-  h1: {
-    label: "Heading 1",
-    icon: <Heading1Icon className="size-4" />,
-  },
   h2: {
     label: "Heading 2",
     icon: <Heading2Icon className="size-4" />,
@@ -26,6 +22,10 @@ export const blockTypeToBlockName: Record<string, { label: string; icon: React.R
   h3: {
     label: "Heading 3",
     icon: <Heading3Icon className="size-4" />,
+  },
+  h4: {
+    label: "Heading 4",
+    icon: <Heading4Icon className="size-4" />,
   },
   number: {
     label: "Numbered List",

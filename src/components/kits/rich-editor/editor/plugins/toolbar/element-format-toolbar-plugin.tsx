@@ -112,7 +112,7 @@ export function ElementFormatToolbarPlugin() {
           key={value}
           value={value}
           variant={"outline"}
-          aria-label={option.name}
+          title={option.name}
           size="sm"
           className="h-8 w-8 p-0"
         >
@@ -121,25 +121,26 @@ export function ElementFormatToolbarPlugin() {
       ))}
 
       <Separator orientation="vertical" className="h-8" />
+
       {/* Indentation toggles */}
       <ToggleGroupItem
+        title="outdent"
         value="outdent"
-        aria-label="Outdent"
+        variant={"outline"}
+        size="sm"
+        className="h-8 w-8"
+      >
+        <IndentIncreaseIcon className="size-4" />
+      </ToggleGroupItem>
+
+      <ToggleGroupItem
+        title="indent"
+        value="indent"
         variant={"outline"}
         size="sm"
         className="h-8 w-8"
       >
         <IndentDecreaseIcon className="size-4" />
-      </ToggleGroupItem>
-
-      <ToggleGroupItem
-        value="indent"
-        variant={"outline"}
-        aria-label="Indent"
-        size="sm"
-        className="h-8 w-8"
-      >
-        <IndentIncreaseIcon className="size-4" />
       </ToggleGroupItem>
     </ToggleGroup>
   );

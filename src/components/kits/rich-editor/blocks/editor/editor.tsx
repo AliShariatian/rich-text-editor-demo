@@ -37,7 +37,7 @@ export const RichEditor: FC<Props> = ({
   onSerializedChange,
 }): ReactElement => {
   return (
-    <div className="overflow-hidden rounded-lg border border-gray-200 bg-white shadow dark:border-gray-800 dark:bg-gray-950">
+    <div className="overflow-hidden rounded-lg border border-gray-800 bg-gray-950 shadow">
       <LexicalComposer
         initialConfig={{
           ...editorConfig,

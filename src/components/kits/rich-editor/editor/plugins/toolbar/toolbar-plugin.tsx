@@ -1,14 +1,13 @@
 "use client";
 
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { COMMAND_PRIORITY_CRITICAL, SELECTION_CHANGE_COMMAND } from "lexical";
 
-import { ToolbarContext } from "@/components/kits/rich-editor/editor/context/toolbar-context";
+import { ToolbarContext } from "../../context/toolbar-context";
 
-import { useEditorModal } from "@/components/kits/rich-editor/editor/editor-hooks/use-modal";
+import { useEditorModal } from "../../editor-hooks/use-modal";
 
 export function ToolbarPlugin({
   children,
@@ -33,7 +32,7 @@ export function ToolbarPlugin({
       },
       COMMAND_PRIORITY_CRITICAL,
     );
-  }, [editor]);
+  }, [activeEditor, editor]);
 
   return (
     <ToolbarContext

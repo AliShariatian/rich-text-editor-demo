@@ -2,14 +2,14 @@
   background-color: transparent;
   font-family: Menlo, Consolas, Monaco, monospace;
   display: block;
-  padding: 8px 8px 8px 52px;
-  line-height: 1.53;
+  padding: 8px 8px 8px 45px;
+  line-height: 1.6;
   font-size: 13px;
   margin: 0;
   margin-top: 8px;
   margin-bottom: 8px;
   overflow-x: auto;
-  border: 1px solid #ccc;
+  border: 1px solid #666;
   position: relative;
   border-radius: 8px;
   tab-size: 2;
@@ -18,7 +18,7 @@
   content: attr(data-gutter);
   position: absolute;
   background-color: transparent;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid #666;
   left: 0;
   top: 0;
   padding: 8px;
@@ -69,7 +69,7 @@
   margin-bottom: 0.5rem;
 }
 
-.Collapsible__title{
+.Collapsible__title {
   padding: 0.25rem;
   padding-left: 1rem;
   position: relative;
@@ -80,12 +80,12 @@
   list-style-position: inside;
 }
 
-.Collapsible__title p{
+.Collapsible__title p {
   display: inline-flex;
 }
-.Collapsible__title::marker{
+.Collapsible__title::marker {
   color: lightgray;
 }
-.Collapsible__container[open] >.Collapsible__title {
+.Collapsible__container[open] > .Collapsible__title {
   list-style-type: disclosure-open;
 }

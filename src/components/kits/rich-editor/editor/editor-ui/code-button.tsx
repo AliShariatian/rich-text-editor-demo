@@ -5,7 +5,7 @@ import { $isCodeNode } from "@lexical/code";
 import { $getNearestNodeFromDOMNode, $getSelection, $setSelection, LexicalEditor } from "lexical";
 import { CircleCheckIcon, CopyIcon } from "lucide-react";
 
-import { useDebounce } from "@/components/kits/rich-editor/editor/editor-hooks/use-debounce";
+import { useDebounce } from "../../editor/editor-hooks/use-debounce";
 
 interface Props {
   editor: LexicalEditor;
@@ -22,9 +22,7 @@ export function CopyButton({ editor, getCodeDOMNode }: Props) {
   async function handleClick(): Promise<void> {
     const codeDOMNode = getCodeDOMNode();
 
-    if (!codeDOMNode) {
-      return;
-    }
+    if (!codeDOMNode) return;
 
     let content = "";
 
@@ -50,9 +48,8 @@ export function CopyButton({ editor, getCodeDOMNode }: Props) {
 
   return (
     <button
-      className="flex shrink-0 cursor-pointer items-center rounded border border-gray-200 border-transparent bg-none p-1 text-gray-950/50 uppercase dark:border-gray-800 dark:text-gray-50/50"
+      className="flex shrink-0 cursor-pointer items-center rounded border border-gray-800 bg-none p-1 text-gray-50/50 uppercase"
       onClick={handleClick}
-      aria-label="copy"
     >
       {isCopyCompleted ? <CircleCheckIcon className="size-4" /> : <CopyIcon className="size-4" />}
     </button>

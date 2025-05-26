@@ -67,7 +67,8 @@ export function CounterCharacterPlugin({ charset = "UTF-16" }: CounterCharacterP
 
   return (
     <div className="flex gap-2 text-xs whitespace-nowrap text-gray-500">
-      <p>{stats.characters} characters</p>|<p>{stats.words} words</p>
+      <p>{stats.characters?.toLocaleString()} Characters</p>|
+      <p>{stats.words.toLocaleString()} Words</p>
     </div>
   );
 }

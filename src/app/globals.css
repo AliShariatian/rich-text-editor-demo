@@ -20,3 +20,16 @@
     @apply grid min-h-screen grid-rows-[auto_1fr_auto];
   }
 }
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility bb {
+  @apply shadow-[0_0_0_1px_red];
+}

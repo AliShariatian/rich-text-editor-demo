@@ -35,7 +35,6 @@ import { BlockInsertPlugin } from "../../editor/plugins/toolbar/block-insert-plu
 import { InsertCollapsibleContainer } from "../../editor/plugins/toolbar/block-insert/insert-collapsible-container";
 import { InsertColumnsLayout } from "../../editor/plugins/toolbar/block-insert/insert-columns-layout";
 import { InsertEmbeds } from "../../editor/plugins/toolbar/block-insert/insert-embeds";
-import { InsertExcalidraw } from "../../editor/plugins/toolbar/block-insert/insert-excalidraw";
 import { InsertHorizontalRule } from "../../editor/plugins/toolbar/block-insert/insert-horizontal-rule";
 import { InsertImage } from "../../editor/plugins/toolbar/block-insert/insert-image";
 import { InsertInlineImage } from "../../editor/plugins/toolbar/block-insert/insert-inline-image";
@@ -80,7 +79,6 @@ import { YouTubePlugin } from "../../editor/plugins/embeds/youtube-plugin";
 import { EmojiPickerPlugin } from "../../editor/plugins/emoji-picker-plugin";
 import { EmojisPlugin } from "../../editor/plugins/emojis-plugin";
 import { EquationsPlugin } from "../../editor/plugins/equations-plugin";
-import { ExcalidrawPlugin } from "../../editor/plugins/excalidraw-plugin";
 import { FloatingLinkEditorPlugin } from "../../editor/plugins/floating-link-editor-plugin";
 import { FloatingTextFormatToolbarPlugin } from "../../editor/plugins/floating-text-format-plugin";
 import { ImagesPlugin } from "../../editor/plugins/images-plugin";
@@ -115,7 +113,6 @@ import { CodePickerPlugin } from "../../editor/plugins/picker/code-picker-plugin
 import { DividerPickerPlugin } from "../../editor/plugins/picker/divider-picker-plugin";
 import { PageBreakPickerPlugin } from "../../editor/plugins/picker/page-break-picker-plugin";
 import { ImagePickerPlugin } from "../../editor/plugins/picker/image-picker-plugin";
-import { ExcalidrawPickerPlugin } from "../../editor/plugins/picker/excalidraw-picker-plugin";
 import { PollPickerPlugin } from "../../editor/plugins/picker/poll-picker-plugin";
 import { EquationPickerPlugin } from "../../editor/plugins/picker/equation-picker-plugin";
 import { CollapsiblePickerPlugin } from "../../editor/plugins/picker/collapsible-picker-plugin";
@@ -129,7 +126,7 @@ import { TABLE } from "../../editor/transformers/markdown-table-transformer";
 import { TWEET } from "../../editor/transformers/markdown-tweet-transformer";
 
 export const placeholder = "میتونی از / استفاده کنی...";
-const maxLength = 500;
+const maxLength = 5_000;
 
 export function Plugins() {
   const [floatingAnchorElem, setFloatingAnchorElem] = useState<HTMLDivElement | null>(null);
@@ -144,63 +141,71 @@ export function Plugins() {
     <div className="relative">
       <ToolbarPlugin>
         {({ blockType }) => (
-          <div className="vertical-align-middle sticky top-0 z-10 flex gap-2 overflow-auto border-b p-1">
-            <HistoryToolbarPlugin />
-            <Separator orientation="vertical" className="h-8" />
+          <div className="vertical-align-middle sticky top-0 z-10 flex gap-2 overflow-auto border-b p-4">
             <BlockFormatDropDown>
               <FormatParagraph />
-              <FormatHeading levels={["h1", "h2", "h3"]} />
+              <FormatHeading levels={["h2", "h3", "h4"]} />
               <FormatNumberedList />
               <FormatBulletedList />
               <FormatCheckList />
               <FormatCodeBlock />
               <FormatQuote />
             </BlockFormatDropDown>
+
             {blockType === "code" ? (
               <CodeLanguageToolbarPlugin />
             ) : (
               <>
-                <FontFamilyToolbarPlugin />
-                <FontSizeToolbarPlugin />
-                <Separator orientation="vertical" className="h-8" />
-                <FontFormatToolbarPlugin format="bold" />
-                <FontFormatToolbarPlugin format="italic" />
-                <FontFormatToolbarPlugin format="underline" />
-                <FontFormatToolbarPlugin format="strikethrough" />
-                <Separator orientation="vertical" className="h-8" />
-                <SubSuperToolbarPlugin />
-                <LinkToolbarPlugin />
-                <Separator orientation="vertical" className="h-8" />
-                <ClearFormattingToolbarPlugin />
-                <Separator orientation="vertical" className="h-8" />
-                <FontColorToolbarPlugin />
-                <FontBackgroundToolbarPlugin />
-                <Separator orientation="vertical" className="h-8" />
-                <ElementFormatToolbarPlugin />
-                <Separator orientation="vertical" className="h-8" />
                 <BlockInsertPlugin>
                   <InsertHorizontalRule />
                   <InsertPageBreak />
                   <InsertImage />
                   <InsertInlineImage />
                   <InsertCollapsibleContainer />
-                  <InsertExcalidraw />
                   <InsertTable />
                   <InsertPoll />
                   <InsertColumnsLayout />
                   <InsertEmbeds />
                 </BlockInsertPlugin>
+                <FontFamilyToolbarPlugin />
+                <FontSizeToolbarPlugin />
+
+                <Separator orientation="vertical" className="h-8" />
+                <ElementFormatToolbarPlugin />
+
+                <Separator orientation="vertical" className="h-8" />
+                <FontFormatToolbarPlugin format="bold" />
+                <FontFormatToolbarPlugin format="italic" />
+                <FontFormatToolbarPlugin format="underline" />
+                <FontFormatToolbarPlugin format="strikethrough" />
+
+                <Separator orientation="vertical" className="h-8" />
+                <LinkToolbarPlugin />
+
+                <Separator orientation="vertical" className="h-8" />
+                <FontColorToolbarPlugin />
+                <FontBackgroundToolbarPlugin />
+
+                <Separator orientation="vertical" className="h-8" />
+                <SubSuperToolbarPlugin />
+
+                <Separator orientation="vertical" className="h-8" />
+                <ClearFormattingToolbarPlugin />
+
+                <Separator orientation="vertical" className="h-8" />
+                <HistoryToolbarPlugin />
               </>
             )}
           </div>
         )}
       </ToolbarPlugin>
+
       <div className="relative">
         <AutoFocusPlugin />
 
         <RichTextPlugin
           contentEditable={
-            <div className="">
+            <div className="max-h-[30rem] overflow-y-scroll">
               <div className="" ref={onRef}>
                 <ContentEditable
                   placeholder={placeholder}
@@ -228,7 +233,7 @@ export function Plugins() {
         <EmojisPlugin />
         <ImagesPlugin />
         <InlineImagePlugin />
-        <ExcalidrawPlugin />
+
         <TableCellResizerPlugin />
         <TableHoverActionsPlugin anchorElem={floatingAnchorElem} />
         <TableActionMenuPlugin anchorElem={floatingAnchorElem} cellMerge={true} />
@@ -268,26 +273,41 @@ export function Plugins() {
         <ComponentPickerMenuPlugin
           baseOptions={[
             ParagraphPickerPlugin(),
-            HeadingPickerPlugin({ n: 1 }),
+
             HeadingPickerPlugin({ n: 2 }),
             HeadingPickerPlugin({ n: 3 }),
+            HeadingPickerPlugin({ n: 4 }),
+
             TablePickerPlugin(),
+
             CheckListPickerPlugin(),
+
             NumberedListPickerPlugin(),
+
             BulletedListPickerPlugin(),
+
             QuotePickerPlugin(),
+
             CodePickerPlugin(),
+
             DividerPickerPlugin(),
+
             PageBreakPickerPlugin(),
-            ExcalidrawPickerPlugin(),
+
             PollPickerPlugin(),
+
             EmbedsPickerPlugin({ embed: "figma" }),
             EmbedsPickerPlugin({ embed: "tweet" }),
             EmbedsPickerPlugin({ embed: "youtube-video" }),
+
             EquationPickerPlugin(),
+
             ImagePickerPlugin(),
+
             CollapsiblePickerPlugin(),
+
             ColumnsLayoutPickerPlugin(),
+
             AlignmentPickerPlugin({ alignment: "left" }),
             AlignmentPickerPlugin({ alignment: "center" }),
             AlignmentPickerPlugin({ alignment: "right" }),
@@ -305,15 +325,16 @@ export function Plugins() {
 
         <ListMaxIndentLevelPlugin />
       </div>
+
+      {/* --- Footer Options --- */}
       <ActionsPlugin>
         <div className="clear-both flex items-center justify-between gap-2 overflow-auto border-t p-1">
-          <div className="flex-1' flex justify-start">
+          <div className="flex flex-1 justify-start gap-2">
             <MaxLengthPlugin maxLength={maxLength} />
             <CharacterLimitPlugin maxLength={maxLength} charset="UTF-16" />
-          </div>
-          <div>
             <CounterCharacterPlugin charset="UTF-16" />
           </div>
+
           <div className="flex flex-1 justify-end">
             <ShareContentPlugin />
             <ImportExportPlugin />
@@ -333,11 +354,10 @@ export function Plugins() {
                 ...TEXT_MATCH_TRANSFORMERS,
               ]}
             />
+
             <EditModeTogglePlugin />
-            <>
-              <ClearEditorActionPlugin />
-              <ClearEditorPlugin />
-            </>
+            <ClearEditorActionPlugin />
+            <ClearEditorPlugin />
             <TreeViewPlugin />
           </div>
         </div>

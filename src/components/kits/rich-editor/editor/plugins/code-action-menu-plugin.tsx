@@ -11,11 +11,7 @@
 import { useEffect, useRef, useState, JSX } from "react";
 import * as React from "react";
 
-import {
-  $isCodeNode,
-  CodeNode,
-  getLanguageFriendlyName /* normalizeCodeLang */,
-} from "@lexical/code";
+import { $isCodeNode, CodeNode, getLanguageFriendlyName } from "@lexical/code";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import { $getNearestNodeFromDOMNode } from "lexical";
 import { createPortal } from "react-dom";
@@ -128,14 +124,13 @@ function CodeActionMenuContainer({ anchorElem }: { anchorElem: HTMLElement }): J
     );
   }, [editor]);
 
-  // const normalizedLang = normalizeCodeLang(lang);
   const codeFriendlyName = getLanguageFriendlyName(lang);
 
   return (
     <>
       {isShown ? (
         <div
-          className="code-action-menu-container user-select-none absolute flex h-9 flex-row items-center space-x-1 text-xs text-gray-950/50 dark:text-gray-50/50"
+          className="code-action-menu-container user-select-none absolute flex h-9 flex-row items-center space-x-1 text-xs text-gray-50/70"
           style={{ ...position }}
         >
           <div>{codeFriendlyName}</div>

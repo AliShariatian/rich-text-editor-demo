@@ -15,7 +15,7 @@ export function CharacterLimitPlugin({
         <div
           className={`px-1 text-xs ${number.remainingCharacters <= 0 ? "text-destructive" : "text-gray-500"}`}
         >
-          {number.remainingCharacters}
+          {number.remainingCharacters.toLocaleString()}
         </div>
       )}
     />

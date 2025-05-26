@@ -73,7 +73,13 @@ export function ClearFormattingToolbarPlugin() {
   }, [activeEditor]);
 
   return (
-    <Button size={"sm"} variant={"outline"} className="h-8 w-8" onClick={clearFormatting}>
+    <Button
+      size={"sm"}
+      title="Clear Formatting"
+      variant={"outline"}
+      className="h-8 w-8"
+      onClick={clearFormatting}
+    >
       <EraserIcon className="h-4 w-4" />
     </Button>
   );

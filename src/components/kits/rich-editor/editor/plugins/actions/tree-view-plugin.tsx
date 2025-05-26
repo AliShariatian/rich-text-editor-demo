@@ -2,11 +2,12 @@
 
 import { JSX } from "react";
 
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
-import { TreeView } from "@lexical/react/LexicalTreeView";
 import { NotebookPenIcon } from "lucide-react";
+import { TreeView } from "@lexical/react/LexicalTreeView";
+import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import {
   Dialog,
   DialogContent,
@@ -14,10 +15,10 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 export function TreeViewPlugin(): JSX.Element {
   const [editor] = useLexicalComposerContext();
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -25,21 +26,25 @@ export function TreeViewPlugin(): JSX.Element {
           <NotebookPenIcon className="h-4 w-4" />
         </Button>
       </DialogTrigger>
-      <DialogContent>
+
+      <DialogContent className="sm:max-w-7xl">
         <DialogHeader>
           <DialogTitle>Tree View</DialogTitle>
         </DialogHeader>
-        <ScrollArea className="h-96 overflow-hidden rounded-lg bg-gray-950 p-2 text-white dark:bg-gray-50 dark:text-gray-950">
+
+        <ScrollArea className="h-[40rem] overflow-hidden rounded-lg bg-gray-900 text-gray-100">
           <TreeView
-            viewClassName="tree-view-output"
-            treeTypeButtonClassName="debug-treetype-button"
-            timeTravelPanelClassName="debug-timetravel-panel"
-            timeTravelButtonClassName="debug-timetravel-button"
-            timeTravelPanelSliderClassName="debug-timetravel-panel-slider"
-            timeTravelPanelButtonClassName="debug-timetravel-panel-button"
+            viewClassName="p-8"
+            treeTypeButtonClassName={buttonVariants({ variant: "secondary" })}
+            timeTravelPanelClassName=""
+            timeTravelButtonClassName=""
+            timeTravelPanelSliderClassName=""
+            timeTravelPanelButtonClassName=""
             editor={editor}
           />
+
           <ScrollBar orientation="vertical" />
+          <ScrollBar orientation="horizontal" />
         </ScrollArea>
       </DialogContent>
     </Dialog>
