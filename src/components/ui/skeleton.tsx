@@ -1,13 +1,14 @@
+import { FC, ReactElement, ComponentProps } from "react";
 import { cn } from "@/utils";
 
-function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
+type Props = ComponentProps<"div">;
+
+export const Skeleton: FC<Props> = ({ className, ...props }): ReactElement => {
   return (
     <div
       data-slot="skeleton"
-      className={cn("animate-pulse rounded-md bg-gray-100 dark:bg-zinc-800", className)}
+      className={cn("animate-pulse rounded-md bg-zinc-800", className)}
       {...props}
     />
   );
-}
-
-export { Skeleton };
+};
