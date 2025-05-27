@@ -2,7 +2,7 @@ import { FC, ReactElement } from "react";
 import { type Metadata } from "next";
 
 import { Container } from "@/components/layouts";
-import { EditorSection } from "./_components/editor-section";
+import { TextEditorSection } from "./_components/text-editor-section";
 
 export const metadata: Metadata = {
   title: "Editor",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const EditorPage: FC = (): ReactElement => {
   return (
     <Container>
-      <EditorSection />
+      <TextEditorSection />
     </Container>
   );
 };
