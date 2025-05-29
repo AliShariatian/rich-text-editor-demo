@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   scroll-behavior: smooth;
@@ -13,6 +14,32 @@
 }
 
 @custom-variant hover (&:hover);
+
+@layer base {
+  article {
+    @apply prose prose-lg prose-invert max-w-none;
+    @apply prose-img:mx-auto prose-img:rounded-md;
+    @apply prose-headings:text-gray-200 text-gray-200;
+    @apply prose-td:border prose-td:bg-gray-950/60 prose-td:border-gray-700 prose-td:[&>p]:my-0 prose-td:px-5;
+    @apply prose-a:text-green-600 prose-a:no-underline prose-a:hover:text-green-300 prose-a:transition-colors;
+
+    & .attachment a {
+      @apply mr-auto flex w-fit flex-row-reverse items-center gap-4 rounded-md bg-gray-800 px-6 py-3 text-base no-underline transition-colors hover:text-gray-300;
+
+      & .attachment__text {
+        @apply relative top-0.5;
+      }
+
+      & .attachment__icon svg {
+        @apply size-5;
+      }
+    }
+
+    & mark[data-color] {
+      @apply rounded-sm px-1;
+    }
+  }
+}
 
 @layer components {
   .layout {

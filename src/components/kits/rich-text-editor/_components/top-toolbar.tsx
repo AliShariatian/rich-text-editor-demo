@@ -17,7 +17,7 @@ export const TopToolbar: FC<Props> = ({
   onClickEditable,
 }): ReactElement => {
   return (
-    <div className="mb-5 flex gap-3 *:px-3 *:py-2 hover:*:cursor-pointer">
+    <div dir="ltr" className="mb-5 flex gap-3 *:px-3 *:py-2 hover:*:cursor-pointer">
       <button onClick={onClickDark}>{isDark ? "Light" : "Dark"}</button>
 
       <button onClick={onClickEditable}>{isEditable ? "Editable" : "Readonly"}</button>

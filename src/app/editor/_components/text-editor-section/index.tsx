@@ -11,7 +11,7 @@ export const TextEditorSection: FC = (): ReactElement => {
       <RichTextEditorClient content={content} setContent={setContent} />
 
       <article className="bb p-4" dangerouslySetInnerHTML={{ __html: content }} />
-      <article dir="ltr" className="bb p-4">
+      <article dir="ltr" className="bb p-4 break-all">
         {content}
       </article>
     </section>
