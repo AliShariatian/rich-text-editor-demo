@@ -19,6 +19,7 @@
   article {
     @apply prose prose-lg prose-invert max-w-none;
     @apply prose-img:mx-auto prose-img:rounded-md;
+    @apply prose-h2:mt-1;
     @apply prose-headings:text-gray-200 text-gray-200;
     @apply prose-td:border prose-td:bg-gray-950/60 prose-td:border-gray-700 prose-td:[&>p]:my-0 prose-td:px-5;
     @apply prose-a:text-green-600 prose-a:no-underline prose-a:hover:text-green-300 prose-a:transition-colors;

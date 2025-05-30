@@ -1,7 +1,9 @@
 "use client";
 
 import { FC, ReactElement, useState } from "react";
+
 import { RichTextEditorClient } from "@/components/kits/rich-text-editor";
+import { Output } from "./output";
 
 export const TextEditorSection: FC = (): ReactElement => {
   const [content, setContent] = useState<string>("");
@@ -10,10 +12,7 @@ export const TextEditorSection: FC = (): ReactElement => {
     <section className="flex flex-col gap-4">
       <RichTextEditorClient content={content} setContent={setContent} />
 
-      <article className="bb p-4" dangerouslySetInnerHTML={{ __html: content }} />
-      <article dir="ltr" className="bb p-4 break-all">
-        {content}
-      </article>
+      <Output content={content} />
     </section>
   );
 };

@@ -28,7 +28,7 @@ export default function RichTextEditor({
   };
 
   return (
-    <div dir="rtl">
+    <div dir="ltr">
       <TopToolbar
         isEditable={disable}
         onClickEditable={() => setDisable((prev) => !prev)}
