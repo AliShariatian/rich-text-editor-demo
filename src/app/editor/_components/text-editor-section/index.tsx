@@ -4,6 +4,7 @@ import { FC, ReactElement, useState } from "react";
 
 import { RichTextEditorClient } from "@/components/kits/rich-text-editor";
 import { Output } from "./output";
+import { ShareButton } from "./share-button";
 
 export const TextEditorSection: FC = (): ReactElement => {
   const [content, setContent] = useState<string>("");
@@ -11,6 +12,8 @@ export const TextEditorSection: FC = (): ReactElement => {
   return (
     <section className="flex flex-col gap-4">
       <RichTextEditorClient content={content} setContent={setContent} />
+
+      <ShareButton content={content} />
 
       <Output content={content} />
     </section>

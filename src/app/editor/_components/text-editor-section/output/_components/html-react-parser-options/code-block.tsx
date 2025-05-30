@@ -19,11 +19,11 @@ export const CodeBlock: FC<Props> = ({ code, language, showLineNumbers }): React
       <SyntaxHighlighter
         language={language}
         style={githubDark}
-        customStyle={{ direction: "ltr" }}
+        customStyle={{ direction: "ltr", textAlign: "left" }}
         codeTagProps={{ className: "flex flex-col gap-0" }}
         wrapLines
         showLineNumbers={showLineNumbers}
-        lineNumberStyle={{ color: "#ccc", minWidth: "2.5em" }}
+        lineNumberStyle={{ color: "#ccc", minWidth: "3em" }}
         lineProps={{
           className: "hover:bg-gray-800",
           style: { paddingLeft: showLineNumbers ? "" : "16px" },

@@ -1,13 +1,14 @@
 import { create } from "zustand";
 
-type Content = string[] | null;
-
 type EditorContent = {
-  content: Content;
-  setContent: (newContent: Content) => void;
+  content: string[] | null;
+  setContent: (newContent: string) => void;
 };
 
 export const useEditorContent = create<EditorContent>((set) => ({
   content: null,
-  setContent: (newContent) => set(() => ({ content: newContent })),
+  setContent: (newContent) =>
+    set((state) => ({
+      content: state.content ? [...state.content, newContent] : [newContent],
+    })),
 }));
