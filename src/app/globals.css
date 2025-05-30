@@ -39,6 +39,10 @@
     & mark[data-color] {
       @apply rounded-sm px-1;
     }
+
+    & code.inline-code {
+      @apply rounded-sm border border-gray-700 px-1 font-normal;
+    }
   }
 }
 
