@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-react": "^9.5.0",
+    "ckeditor5": "^45.1.0",
     "clsx": "^2.1.1",
     "html-react-parser": "^5.2.5",
     "lucide-react": "^0.511.0",
@@ -25,6 +27,7 @@
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@tailwindcss/typography": "^0.5.16",
+    "@types/ckeditor": "^4.9.10",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

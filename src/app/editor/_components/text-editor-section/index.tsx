@@ -3,8 +3,8 @@
 import { FC, ReactElement, useState } from "react";
 
 import { RichTextEditorClient } from "@/components/kits/rich-text-editor";
-import { Output } from "./output";
 import { ShareButton } from "./share-button";
+import { Output } from "./output";
 
 export const TextEditorSection: FC = (): ReactElement => {
   const [content, setContent] = useState<string>("");

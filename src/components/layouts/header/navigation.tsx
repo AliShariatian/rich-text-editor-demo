@@ -25,5 +25,6 @@ export const Navigation: FC = (): ReactElement => {
 
 const items = [
   { label: "خانه", href: "/" },
-  { label: "ادیتور", href: "/editor" },
+  { label: "Reactjs Tiptap Editor", href: "/editor" },
+  { label: "CKEditor", href: "/ckeditor" },
 ];

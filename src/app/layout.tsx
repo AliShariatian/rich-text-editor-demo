@@ -8,10 +8,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    template: "Rich Editor App | %s",
-    default: "Rich Editor",
+    template: "Rich Editor Demo | %s",
+    default: "Rich Editor Demo",
   },
-  description: "Rich Text Editor",
+  description: "Rich Text Editor Demo",
 };
 
 type Props = Readonly<{
