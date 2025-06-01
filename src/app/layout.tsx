@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 import { Footer, Header } from "@/components/layouts";
 
-import { geistMono, geistSans, vazirmatn } from "@/fonts";
+import { geistMono, geistSans, jetBrains, vazirmatn } from "@/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ const RootLayout: FC<Props> = ({ children }): ReactElement => {
   return (
     <html lang="fa" dir="rtl">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${vazirmatn.variable} font-vazirmatn layout bg-zinc-900 text-gray-200 antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${vazirmatn.variable} ${jetBrains.variable} font-vazirmatn layout bg-zinc-900 text-gray-200 antialiased`}
       >
         <Header />
         {children}

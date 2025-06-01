@@ -23,11 +23,21 @@ export const CodeBlock: FC<Props> = ({ code, language, showLineNumbers }): React
           direction: "ltr",
           textAlign: "left",
         }}
-        codeTagProps={{ className: "flex flex-col gap-0 *:hover:bg-gray-800 *:pr-4" }}
+        codeTagProps={{
+          className: "flex flex-col *:hover:bg-gray-800 *:pr-4",
+        }}
         wrapLines
         showLineNumbers={showLineNumbers}
-        lineNumberStyle={{ color: "#ccc", minWidth: "3em" }}
-        lineProps={{ style: { paddingLeft: showLineNumbers ? "" : "16px" } }}
+        lineNumberStyle={{
+          color: "#aaa",
+          minWidth: "3em",
+          paddingRight: "0.75em",
+          marginRight: "1em",
+          borderRight: "1px solid #333",
+        }}
+        lineProps={{
+          style: { paddingLeft: showLineNumbers ? "" : "16px" },
+        }}
       >
         {code}
       </SyntaxHighlighter>

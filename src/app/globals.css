@@ -11,6 +11,7 @@
   --font-vazirmatn: var(--font-vazirmatn);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-jetBrains: var(--font-jetBrains);
 
   /* Breakpoints */
   --breakpoint-desktop: theme(--breakpoint-lg);
@@ -20,7 +21,7 @@
 
 @layer base {
   article {
-    @apply prose prose-lg prose-invert max-w-none;
+    @apply prose-sm desktop:prose-lg prose-invert max-w-none;
     @apply prose-img:mx-auto prose-img:rounded-md;
     @apply prose-figure:mx-auto prose-figure:rounded-md;
     @apply prose-h2:mt-1;
@@ -30,6 +31,8 @@
     @apply prose-th:border prose-th:bg-gray-900 prose-th:border-gray-700 prose-th:[&>p]:my-0 prose-th:px-5;
 
     @apply prose-a:text-green-600 prose-a:no-underline prose-a:hover:text-green-300 prose-a:transition-colors;
+
+    @apply prose-code:font-jetBrains desktop:prose-code:leading-6 prose-code:font-light;
 
     & .attachment a {
       @apply mr-auto flex w-fit flex-row-reverse items-center gap-4 rounded-md bg-gray-800 px-6 py-3 text-base no-underline transition-colors hover:text-gray-300;
@@ -51,6 +54,14 @@
 
     & code.inline-code {
       @apply rounded-sm border border-gray-700 px-1 font-normal;
+    }
+
+    & pre code {
+      font-variant-ligatures: none; /* normal | none */
+    }
+
+    & pre code span:hover span.linenumber {
+      color: #eee !important;
     }
   }
 }

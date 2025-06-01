@@ -5,5 +5,5 @@ type Props = {
 };
 
 export const CodeLangName: FC<Props> = ({ language }): ReactElement => {
-  return <span className="text-xs capitalize">{language}</span>;
+  return <span className="font-jetBrains text-xs">{language}</span>;
 };
