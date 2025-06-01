@@ -1,14 +1,35 @@
 import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
 
-type EditorContent = {
-  content: string[] | null;
-  setContent: (newContent: string) => void;
+type ContentItem = {
+  id: string;
+  text: string;
 };
 
-export const useEditorContent = create<EditorContent>((set) => ({
-  content: null,
-  setContent: (newContent) =>
-    set((state) => ({
-      content: state.content ? [...state.content, newContent] : [newContent],
-    })),
-}));
+type EditorContent = {
+  content: ContentItem[];
+  addContent: (text: string) => void;
+  removeContent: (id: string) => void;
+};
+
+export const useEditorContent = create<EditorContent>()(
+  persist(
+    (set) => ({
+      content: [],
+
+      addContent: (text: string) =>
+        set((state) => ({
+          content: [...state.content, { id: crypto.randomUUID(), text }],
+        })),
+
+      removeContent: (id: string) =>
+        set((state) => ({
+          content: state.content.filter((item) => item.id !== id),
+        })),
+    }),
+    {
+      name: "useEditorContent",
+      storage: createJSONStorage(() => localStorage),
+    },
+  ),
+);

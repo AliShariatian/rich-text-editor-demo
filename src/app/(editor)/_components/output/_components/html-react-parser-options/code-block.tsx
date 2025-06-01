@@ -1,9 +1,8 @@
 import { FC, ReactElement } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
 
-import { CopyButton } from "../copy-button";
-import { CodeLangName } from "../code-lang-name";
 import { githubDark } from "../../theme";
+import { Options } from "./options";
 
 type Props = {
   language: string;
@@ -14,25 +13,24 @@ type Props = {
 export const CodeBlock: FC<Props> = ({ code, language, showLineNumbers }): ReactElement => {
   return (
     <div className="group/code relative">
-      <CopyButton text={code} />
+      <Options code={code} language={language} />
 
       <SyntaxHighlighter
         language={language}
         style={githubDark}
-        customStyle={{ direction: "ltr", textAlign: "left" }}
-        codeTagProps={{ className: "flex flex-col gap-0" }}
+        customStyle={{
+          paddingTop: "1.5rem",
+          direction: "ltr",
+          textAlign: "left",
+        }}
+        codeTagProps={{ className: "flex flex-col gap-0 *:hover:bg-gray-800 *:pr-4" }}
         wrapLines
         showLineNumbers={showLineNumbers}
         lineNumberStyle={{ color: "#ccc", minWidth: "3em" }}
-        lineProps={{
-          className: "hover:bg-gray-800",
-          style: { paddingLeft: showLineNumbers ? "" : "16px" },
-        }}
+        lineProps={{ style: { paddingLeft: showLineNumbers ? "" : "16px" } }}
       >
         {code}
       </SyntaxHighlighter>
-
-      <CodeLangName language={language} />
     </div>
   );
 };

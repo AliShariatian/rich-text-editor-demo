@@ -7,6 +7,7 @@ export const blockToolbar: EditorConfig["blockToolbar"] = [
   "|",
   "bold",
   "italic",
+  "alignment",
   "|",
   "link",
   "insertImage",

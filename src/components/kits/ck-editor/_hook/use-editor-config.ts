@@ -2,8 +2,8 @@ import { useMemo } from "react";
 import { EditorConfig } from "ckeditor5";
 
 import {
-  toolbar,
   plugins,
+  toolbar,
   balloonToolbar,
   blockToolbar,
   heading,
@@ -17,6 +17,8 @@ import {
   htmlSupport,
   fontFamily,
   language,
+  highlight,
+  autosave,
 } from "../_settings";
 
 type Params = {
@@ -44,6 +46,10 @@ export const useEditorConfig = ({ initialData }: Params) => {
       mention,
       style,
       table,
+      highlight,
+      autosave,
+
+      codeBlock: { indentSequence: "9" },
     };
   }, [initialData]);
 

@@ -9,7 +9,7 @@ export const EmptyMessage: FC = (): ReactElement => {
       <div className="flex flex-col items-center justify-center gap-20">
         <p className="text-center text-4xl leading-14 font-black">
           محتوایی برای نمایش وجود ندارد! <br /> برای شروع، به صفحه{" "}
-          <Link href="/editor" className="text-cyan-400 transition-colors hover:text-cyan-300">
+          <Link href="/ckeditor" className="text-cyan-400 transition-colors hover:text-cyan-300">
             ادیتور
           </Link>{" "}
           بروید...

@@ -5,7 +5,7 @@ export const heading: EditorConfig["heading"] = {
     {
       model: "paragraph",
       title: "Paragraph",
-      class: "ck-heading_paragraph",
+      class: "ck-paragraph",
     },
     {
       model: "heading1",

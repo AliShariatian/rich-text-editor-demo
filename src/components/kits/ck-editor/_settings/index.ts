@@ -13,3 +13,5 @@ export * from "./items/list";
 export * from "./items/html-support";
 export * from "./items/font-family";
 export * from "./items/language";
+export * from "./items/highlight";
+export * from "./items/auto-save";

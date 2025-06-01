@@ -111,6 +111,7 @@
 
   /* --- */
 
+  --ck-style-panel-button-label-background: #4a494b;
   --ck-color-base-background: #18181b;
 }
 
@@ -132,6 +133,17 @@
 }
 
 .ck-placeholder {
-  /* border: 1px solid red !important; */
   text-align: right;
 }
+
+.ck a {
+  color: #0af;
+  text-decoration: underline;
+}
+
+.ck pre[data-language] {
+  color: #ccc;
+  background-color: #4a494b;
+}
+
+/* border: 1px solid red !important; */

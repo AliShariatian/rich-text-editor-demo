@@ -8,10 +8,10 @@ type Props = {
 };
 
 export const ShareButton: FC<Props> = ({ content }): ReactElement => {
-  const setContent = useEditorContent((state) => state.setContent);
+  const addContent = useEditorContent((state) => state.addContent);
 
   const handleShareContent = () => {
-    setContent(content);
+    addContent(content);
   };
 
   return (

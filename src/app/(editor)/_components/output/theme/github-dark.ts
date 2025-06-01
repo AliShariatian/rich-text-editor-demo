@@ -10,6 +10,7 @@ export const githubDark: { [key: string]: CSSProperties } = {
     borderRadius: "6px",
     border: "1px solid #292f38",
   },
+
   "hljs-comment": {
     color: "#8b949e",
   },

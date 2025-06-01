@@ -1,16 +1,19 @@
 "use client";
 
 import { FC, ReactElement, useState, useEffect, useRef, ComponentRef } from "react";
-import { ClassicEditor } from "ckeditor5";
+import { ClassicEditor, EventInfo } from "ckeditor5";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import "ckeditor5/ckeditor5.css";
 
 import { useEditorConfig } from "./_hook/use-editor-config";
 import "./_styles/ck-editor.css";
 
-export const CKEditorRichTextEditor: FC = (): ReactElement => {
-  const initialData: string = "";
+type Props = {
+  content: string;
+  setContent: (value: string) => void;
+};
 
+export const CKEditorRichTextEditor: FC<Props> = ({ content, setContent }): ReactElement => {
   const editorWordCountRef = useRef<ComponentRef<"div">>(null);
   const [isLayoutReady, setIsLayoutReady] = useState<boolean>(false);
 
@@ -19,7 +22,11 @@ export const CKEditorRichTextEditor: FC = (): ReactElement => {
     return () => setIsLayoutReady(false);
   }, []);
 
-  const { editorConfig } = useEditorConfig({ initialData });
+  const { editorConfig } = useEditorConfig({ initialData: content });
+
+  const handleOnChange = (_event: EventInfo, editor: ClassicEditor) => {
+    setContent(editor.getData());
+  };
 
   const handleOnReady = (editor: ClassicEditor) => {
     const wordCount = editor.plugins.get("WordCount");
@@ -35,10 +42,11 @@ export const CKEditorRichTextEditor: FC = (): ReactElement => {
   };
 
   return (
-    <section className="">
+    <section>
       <div>
         {editorConfig && isLayoutReady && (
           <CKEditor
+            onChange={handleOnChange}
             editor={ClassicEditor}
             config={editorConfig}
             onReady={handleOnReady}
@@ -47,7 +55,7 @@ export const CKEditorRichTextEditor: FC = (): ReactElement => {
         )}
       </div>
 
-      <div className="" ref={editorWordCountRef} />
+      <div ref={editorWordCountRef} />
     </section>
   );
 };
