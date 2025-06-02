@@ -4,11 +4,12 @@ export const githubDark: { [key: string]: CSSProperties } = {
   hljs: {
     display: "block",
     overflowX: "auto",
-    padding: "0.5rem 0",
-    color: "#c9d1d9",
+    padding: "0.6rem 0",
     background: "#0d1117",
-    borderRadius: "6px",
-    border: "1px solid #292f38",
+    borderRadius: "0",
+    margin: "0",
+    direction: "ltr",
+    textAlign: "left",
   },
 
   "hljs-comment": {

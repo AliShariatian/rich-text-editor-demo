@@ -6,6 +6,7 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 import "ckeditor5/ckeditor5.css";
 
 import { useEditorConfig } from "./_hook/use-editor-config";
+import { Skeleton } from "@/components/ui/skeleton";
 import "./_styles/ck-editor.css";
 
 type Props = {
@@ -22,7 +23,7 @@ export const CKEditorRichTextEditor: FC<Props> = ({ content, setContent }): Reac
     return () => setIsLayoutReady(false);
   }, []);
 
-  const { editorConfig } = useEditorConfig({ initialData: content });
+  const { editorConfig } = useEditorConfig();
 
   const handleOnChange = (_event: EventInfo, editor: ClassicEditor) => {
     setContent(editor.getData());
@@ -44,14 +45,17 @@ export const CKEditorRichTextEditor: FC<Props> = ({ content, setContent }): Reac
   return (
     <section>
       <div>
-        {editorConfig && isLayoutReady && (
+        {editorConfig && isLayoutReady ? (
           <CKEditor
+            data={content}
             onChange={handleOnChange}
             editor={ClassicEditor}
             config={editorConfig}
             onReady={handleOnReady}
             onAfterDestroy={handleOnAfterDestroy}
           />
+        ) : (
+          <Skeleton className="h-96 w-full" />
         )}
       </div>
 
