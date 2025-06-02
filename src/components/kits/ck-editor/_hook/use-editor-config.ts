@@ -21,14 +21,9 @@ import {
   autosave,
 } from "../_settings";
 
-type Params = {
-  initialData: string;
-};
-
-export const useEditorConfig = ({ initialData }: Params) => {
+export const useEditorConfig = () => {
   const editorConfig = useMemo((): EditorConfig | undefined => {
     return {
-      initialData,
       placeholder: "شروع کن",
       licenseKey: "GPL",
       plugins,
@@ -51,7 +46,7 @@ export const useEditorConfig = ({ initialData }: Params) => {
 
       codeBlock: { indentSequence: "9" },
     };
-  }, [initialData]);
+  }, []);
 
   return { editorConfig };
 };

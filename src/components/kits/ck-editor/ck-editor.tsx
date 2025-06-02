@@ -22,7 +22,7 @@ export const CKEditorRichTextEditor: FC<Props> = ({ content, setContent }): Reac
     return () => setIsLayoutReady(false);
   }, []);
 
-  const { editorConfig } = useEditorConfig({ initialData: content });
+  const { editorConfig } = useEditorConfig();
 
   const handleOnChange = (_event: EventInfo, editor: ClassicEditor) => {
     setContent(editor.getData());
@@ -46,6 +46,7 @@ export const CKEditorRichTextEditor: FC<Props> = ({ content, setContent }): Reac
       <div>
         {editorConfig && isLayoutReady && (
           <CKEditor
+            data={content}
             onChange={handleOnChange}
             editor={ClassicEditor}
             config={editorConfig}
